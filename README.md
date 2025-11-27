@@ -59,7 +59,7 @@ This project addresses the critical challenge of selecting appropriate formal ve
 
 ## 🛠️ Tools Evaluated
 | Tool | Paradigm | Primary Strength | Execution Time |
-|------|------|------------|------|
+|------|----------|------------------|----------------|
 | CBMC | Bounded Model Checking | Bug Finding | 0.20s (avg) |
 | Frama-C EVA | Abstract Interpretation | Sound Analysis | 0.23s (avg) |
 | Frama-C WP | Deductive Verification | Theorem Proving | 5.37s (avg) |
