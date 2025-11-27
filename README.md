@@ -57,22 +57,22 @@ This project addresses the critical challenge of selecting appropriate formal ve
    python run_experiments.py
    ```
 
-## Tools Evaluated
+## 🛠️ Tools Evaluated
 | Tool | Paradigm | Primary Strength | Execution Time |
-|------|------|------------|
+|------|------|------------|------|
 | CBMC | Bounded Model Checking | Bug Finding | 0.20s (avg) |
 | Frama-C EVA | Abstract Interpretation | Sound Analysis | 0.23s (avg) |
 | Frama-C WP | Deductive Verification | Theorem Proving | 5.37s (avg) |
 | E-ACSL | Runtime Verification | Runtime Monitoring | 0.55s (avg) |
 
-## Benchmark Categories
-Memory Safety: Buffer overflows, null pointer dereferences
-Arithmetic Safety: Integer overflows, division by zero
-Resource Usage: Memory leaks, infinite loops
-Functional Correctness: Pre/post conditions, API contracts
-Standards Compliance: MISRA C violations
-Concurrency Safety: Data races, synchronization
-Complex State Machines: Mode confusion, invariant preservation
+## 📊 Benchmark Categories
+- Memory Safety: Buffer overflows, null pointer dereferences
+- Arithmetic Safety: Integer overflows, division by zero
+- Resource Usage: Memory leaks, infinite loops
+- Functional Correctness: Pre/post conditions, API contracts
+- Standards Compliance: MISRA C violations
+- Concurrency Safety: Data races, synchronization
+- Complex State Machines: Mode confusion, invariant preservation
 
 ## Authors
 
