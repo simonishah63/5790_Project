@@ -1,0 +1,120 @@
+experiment:
+  name: "Safety-Critical Verification Tool Comparison"
+  description: "Comparative analysis of formal verification tools for embedded C code"
+  version: "1.0"
+  authors: ["Research Team"]
+  date: "2024"
+  
+  settings:
+    timeout_seconds: 300
+    max_memory_mb: 4096
+    output_format: "json"
+    enable_visualizations: true
+
+tools:
+  cbmc:
+    name: "C Bounded Model Checker"
+    version: "5.72.0"
+    description: "Bounded model checking for C programs"
+    docker_service: "cbmc"
+    default_flags: ["--json-ui", "--unwind", "100"]
+    
+  framac_value:
+    name: "Frama-C Value Analysis"
+    version: "25.0"
+    description: "Abstract interpretation-based analysis"
+    docker_service: "framac"
+    default_flags: ["-eva", "-metrics"]
+    
+  framac_wp:
+    name: "Frama-C WP"
+    version: "25.0"
+    description: "Deductive verification with Weakest Preconditions"
+    docker_service: "framac"
+    default_flags: ["-wp", "-wp-rte"]
+    
+  eacsl:
+    name: "E-ACSL"
+    version: "1.0"
+    description: "Runtime verification via instrumentation"
+    docker_service: "eacsl"
+    default_flags: ["-main", "main", "-cpp-extra-args", "-pthread"]
+
+# benchmarks:
+#   categories:
+#     - name: "memory_safety"
+#       description: "Memory safety properties"
+#       properties: ["buffer_overflow", "null_pointer"]
+      
+#     - name: "arithmetic"
+#       description: "Arithmetic safety properties" 
+#       properties: ["integer_overflow", "division_by_zero"]
+      
+#     - name: "resource"
+#       description: "Resource usage properties"
+#       properties: ["memory_leak", "infinite_loop"]
+      
+#     - name: "functional"
+#       description: "Functional correctness properties"
+#       properties: ["pre_post_conditions", "misra_compliance"]
+      
+#     - name: "advanced"
+#       description: "Advanced system properties"
+#       properties: ["concurrency_safety", "state_machine_safety"]
+
+benchmarks:
+  categories:
+    - name: "memory_safety"
+      description: "Memory safety properties"
+      files:
+        - "buffer_overflow_unsafe.c"
+        - "buffer_overflow_safe.c"
+        - "null_pointer_unsafe.c"
+        - "null_pointer_safe.c"
+        
+    - name: "arithmetic"
+      description: "Arithmetic safety properties" 
+      files:
+        - "arithmetic_safety.c"
+        
+    - name: "resource"
+      description: "Resource usage properties"
+      files:
+        - "resource_usage.c"
+        
+    - name: "functional"
+      description: "Functional correctness properties"
+      files:
+        - "functional_correctness.c"
+        
+    - name: "advanced"
+      description: "Advanced system properties"
+      files:
+        - "concurrency_safety.c"
+        - "cruise_control.c"
+
+evaluation:
+  metrics:
+    performance:
+      - "execution_time"
+      - "memory_usage"
+      - "timeout_rate"
+      
+    correctness:
+      - "success_rate"
+      - "bugs_detected"
+      - "false_positives"
+      
+    usability:
+      - "ease_of_use"
+      - "error_message_quality"
+      - "documentation_quality"
+
+output:
+  directories:
+    raw_results: "results/raw"
+    processed_results: "results/processed"
+    visualizations: "results/visualizations"
+    
+  formats: ["json", "csv", "html"]
+  reports: ["summary", "detailed", "comparative"]

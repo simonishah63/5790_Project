@@ -1,0 +1,25 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Docker
+docker-data/
+cache/
+
+# Results / Logs
+results/
+logs/
+*.json
+*.csv
+
+# C build
+*.o
+*.out

@@ -1,0 +1,38 @@
+
+version: "3.8"
+
+services:
+  cbmc:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: docker/cbmc.Dockerfile
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+
+  framac:
+    platform: linux/amd64       # Required for Mac ARM64
+    build:
+      context: .
+      dockerfile: docker/framac.Dockerfile
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+
+  tools:
+    build:
+      context: .
+      dockerfile: docker/tools-base.Dockerfile
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    command: tail -f /dev/null
+
+  # eacsl:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/eacsl.Dockerfile
+  #   volumes:
+  #     - .:/workspace
+  #   working_dir: /workspace
